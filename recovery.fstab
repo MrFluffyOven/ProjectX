@@ -25,10 +25,10 @@
 /persist             emmc      /dev/block/by-name/persist           flags=display=persist
 /logo                emmc      /dev/block/by-name/logo              flags=display=logo
 /fbootlogo           emmc      /dev/block/by-name/fbootlogo         flags=display=fbootlogo
-/system              ext4  ro  system                               flags=display=system;wait,logical,first_stage_mount
+/system              ext4  ro  system                               flags=display=system;wait,logical,first_stage_mount;backup=1;flashimg=1
 /system_ext          ext4  ro  system_ext                           flags=display=system_ext;wait,logical,first_stage_mount
-/vendor              ext4  ro  vendor                               flags=display=vendor;wait,logical,first_stage_mount
-/product             ext4  ro  product                              flags=display=product;wait,logical,first_stage_mount
+/vendor              ext4  ro  vendor                               flags=display=vendor;wait,logical,first_stage_mount;backup=1;flashimg=1
+/product             ext4  ro  product                              flags=display=product;wait,logical,first_stage_mount;backup=1;flashimg=1
 /metadata            ext4      /dev/block/by-name/metadata          flags=display=metadata;nodev,noatime,nosuid,errors=panic	wait,formattable,first_stage_mount,check
 /socko               ext4      /dev/block/by-name/socko             flags=display=socko
 /odmko               ext4      /dev/block/by-name/odmko             flags=display=odmko
