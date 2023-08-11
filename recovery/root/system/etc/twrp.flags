@@ -1,24 +1,18 @@
-/vbmeta              emmc      /dev/block/by-name/vbmeta            flags=display=vbmeta
-/vbmeta_system       emmc      /dev/block/by-name/vbmeta_system     flags=display=vbmeta_system
-/vbmeta_vendor       emmc      /dev/block/by-name/vbmeta_vendor     flags=display=vbmeta_vendor
-/dtbo                emmc      /dev/block/by-name/dtbo              flags=display=dtbo;backup=1;flashimg
-/misc                emmc      /dev/block/by-name/misc              flags=display=misc
-/boot                emmc      /dev/block/by-name/boot              flags=display=boot;backup=1;flashimg
-/recovery            emmc      /dev/block/by-name/recovery          flags=display=recovery;backup=1;flashimg
-/persist             emmc      /dev/block/by-name/persist           flags=display=persist;ro
-/system              ext4      system                               flags=display=system;wait,logical,first_stage_mount;backup=1;flashimg=1
-/system_ext          ext4      system_ext                           flags=display=system_ext;wait,logical,first_stage_mount
-/vendor              ext4      vendor                               flags=display=vendor;wait,logical,first_stage_mount;backup=1;flashimg=1
-/product             ext4      product                              flags=display=product;wait,logical,first_stage_mount;backup=1flashimg=1
-/metadata            ext4      /dev/block/by-name/metadata          flags=display=metadata;backup=1
-/cache               ext4      /dev/block/by-name/cache             flags=display=cache;backup=1
-/data                f2fs      /dev/block/by-name/userdata          flags=display=data
-/efs                 ext4      /dev/block/by-name/sec_efs           flags=display=efs;backup=1
-/sec_efs             ext4      /dev/block/by-name/sec_efs           flags=display=sec_efs;backup=1
-/prism               ext4      /dev/block/by-name/prism             flags=display=prism;backup=1;flashimg
-/optics              ext4      /dev/block/by-name/optics            flags=display=optics;backup=1;flashimg
 
-;backup=1;flashimg
+# Logical partitions
+system         /system     ext4    display="System";backup=1;flashimg=1
+system_ext     /system_ext ext4    display="System_EXT";backup=1;flashimg=1
+vendor         /vendor     ext4    display="Vendor";backup=1;flashimg=1
+product        /product    ext4    display="Product";backup=1;flashimg=1
 
-/external_sd    vfat        /dev/block/mmcblk1p1    /dev/block/mmcblk1        flags=storage;wipeingui;removable
+# Physical partitions
+/boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg=1
+/recovery      emmc        /dev/block/by-name/recovery                   flags=backup=1;display="Recovery";flashimg=1
+/misc          emmc        /dev/block/by-name/misc
+/cache         ext4        /dev/block/by-name/cache                      flags=backup=1;display="Cache"
+/metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;display="Metadata"
+/data          f2fs        /dev/block/by-name/userdata
+
+# Removable storage
+/external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
 /usb-otg       vfat        /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
