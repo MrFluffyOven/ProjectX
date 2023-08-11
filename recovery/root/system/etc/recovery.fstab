@@ -47,11 +47,3 @@
 
 /external_sd    vfat        /dev/block/mmcblk1p1    /dev/block/mmcblk1        flags=storage;wipeingui;removable
 /usb-otg       vfat        /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
-/sdcard              sdfat     /dev/block/mmcblk1p1                 flags=display=sdcard
-/efs                 ext4      /dev/block/by-name/sec_efs           flags=display=efs
-/sec_efs             ext4      /dev/block/by-name/sec_efs           flags=display=sec_efs
-/prism               ext4      /dev/block/by-name/prism             flags=display=prism
-/optics              ext4      /dev/block/by-name/optics            flags=display=optics
-/deltanv             emmc      /dev/block/by-name/l_deltanv         flags=display=deltanv
-/nvitem              emmc      /dev/block/by-name/l_fixnv2          flags=display=nvitem
-/qogirl6_m3l_cm4     emmc      /dev/block/by-name/pm_sys            flags=display=qogirl6_m3l_cm4
