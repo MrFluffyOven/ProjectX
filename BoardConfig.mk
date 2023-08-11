@@ -11,6 +11,10 @@ DEVICE_PATH := device/samsung/gta8wifi
 ALLOW_MISSING_DEPENDENCIES := true
 
 # Architecture
+TARGET_IS_64_BIT := true
+TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
